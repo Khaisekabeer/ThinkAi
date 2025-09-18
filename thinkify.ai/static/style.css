@@ -1,0 +1,50 @@
+/* Chat bubbles */
+.bot-message, .user-message {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.5rem;
+  max-width: 75%;
+}
+
+.user-message {
+  margin-left: auto;
+  flex-direction: row-reverse;
+}
+
+.message-bubble {
+  padding: 0.75rem 1rem;
+  border-radius: 1rem;
+  word-wrap: break-word;
+}
+
+.bot-bubble {
+  background-color: #374151; /* gray */
+}
+
+.user-bubble {
+  background-color: #2563eb; /* blue */
+}
+
+.avatar {
+  width: 32px;
+  height: 32px;
+  border-radius: 9999px;
+  background-color: #6b7280; /* gray */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+/* Add watermark background to chat container */
+#chat-container::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: url("/static/pappu.png") no-repeat center center;
+  background-size: 180px 180px; /* adjust size */
+  opacity: 0.08;  /* subtle effect */
+  width: 200px;
+  height: 200px;
+  pointer-events: none; /* doesn’t block clicks */
+}

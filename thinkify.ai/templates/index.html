@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ThinkAi Chatbot</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body class="bg-gray-900 text-white flex flex-col h-screen">
+
+  <!-- Header -->
+  <header class="bg-gray-800 p-4 text-center text-2xl font-bold shadow-lg">
+    🤖 ThinkAi 
+  </header>
+
+  <!-- Chat Container -->
+  <main id="chat-container" class="flex-1 overflow-y-auto p-4 space-y-4">
+    <!-- Initial Welcome Message -->
+    <div id="welcome-message" class="flex flex-col items-center justify-center h-full text-center text-gray-400">
+      <h1 class="text-2xl font-bold text-green-400">Welcome to ThinkAi</h1>
+      <p class="mt-2 text-gray-300">
+        Ask me anything — but beware,<br>
+        I’ll answer with more questions first 😉
+      </p>
+    </div>
+  </main>
+
+  <!-- Typing Indicator -->
+  <div id="typing-indicator" class="hidden p-2 text-gray-400 text-sm">
+    ThinkAi is typing<span class="dot-1">.</span><span class="dot-2">.</span><span class="dot-3">.</span>
+  </div>
+
+  <!-- Input Area -->
+  <footer class="bg-gray-800 p-4 flex items-center space-x-2">
+    <input 
+      id="user-input"
+      type="text"
+      placeholder="Type your message..."
+      class="flex-1 p-2 rounded-lg bg-gray-700 text-white focus:outline-none"
+    >
+    <!-- Mic Button -->
+    <button id="mic-btn" class="p-2 text-white bg-green-500 rounded-full hover:bg-green-600" title="Activate microphone">
+      <i class="fas fa-microphone"></i>
+    </button>
+    <!-- Send Button -->
+    <button id="send-btn" class="bg-green-600 hover:bg-green-700 p-2 rounded-lg">
+      ➤
+    </button>
+  </footer>
+
+  <!-- Floating Buttons -->
+  <!-- Speech Toggle -->
+  <button id="toggle-speech" 
+    class="fixed bottom-20 right-6 w-12 h-12 flex items-center justify-center rounded-full bg-green-500 hover:bg-green-600 shadow-lg">
+    🔈
+  </button>
+
+  <!-- New Chat -->
+  <button id="new-chat" 
+    class="fixed bottom-20 left-6 w-12 h-12 flex items-center justify-center rounded-full bg-blue-500 hover:bg-blue-600 shadow-lg">
+    🔄
+  </button>
+
+  <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
